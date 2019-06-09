@@ -1,0 +1,14 @@
+auto-pairs
+incsearch.vim
+nerdtree
+nerdtree-git-plugin
+tagbar
+taglist
+undotree
+vim-airline
+vim-airline-themes
+vim-colorschemes
+vim-devicons
+vim-fugitive
+vim-gitgutter
+vim-sensible
