@@ -6,7 +6,7 @@
  PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # Path to your oh-my-zsh installation.
-  export ZSH="/home/ouss4/.oh-my-zsh"
+  export ZSH=$HOME"/.oh-my-zsh"
 
 # Tab completion for colorls
   source $(dirname $(gem which colorls))/tab_complete.sh
