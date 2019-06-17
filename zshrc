@@ -1,8 +1,6 @@
 # If you come from bash you might have to change your $PATH.
  export TERM="xterm-256color"
  export PATH=$HOME/bin:/usr/local/bin:$PATH
- export PATH=/opt/microchip/xc32/v2.15/bin:$PATH
- export PATH=/opt/pinguino/p32/bin:$PATH
  PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # Path to your oh-my-zsh installation.
