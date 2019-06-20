@@ -1,3 +1,6 @@
+" Make the space as the leader key.
+let mapleader = " "
+
 set encoding=UTF-8
 set nocompatible
 
@@ -13,6 +16,7 @@ set smarttab
 set hlsearch
 se incsearch
 set textwidth=80
+set showcmd
 
 execute pathogen#infect()
 
@@ -47,6 +51,9 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 map <C-b> <C-w>>
 map <C-n> <C-w><
+
+" Clear search highliting.
+nnoremap <Leader><space> :noh<cr>
 
 "
 " Airline
