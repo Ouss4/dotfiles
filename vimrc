@@ -1,5 +1,5 @@
 " Make the space as the leader key.
-let mapleader = " "
+let mapleader = " " 
 
 set encoding=UTF-8
 set nocompatible
@@ -17,6 +17,7 @@ set hlsearch
 se incsearch
 set textwidth=80
 set showcmd
+set noswapfile
 
 execute pathogen#infect()
 
@@ -25,6 +26,9 @@ syntax on
 
 colorscheme molokai
 hi Search cterm=bold ctermfg=231 ctermbg=24
+
+" Make defs file have the same syntax as make (used in NuttX)
+autocmd BufNewFile,BufRead *.defs set syntax=make
 
 "
 " Shortcuts mapping
@@ -39,11 +43,11 @@ nnoremap <F4> :UndotreeToggle<CR>
 map <F3> :NERDTreeToggle<CR>
 nmap <F2> :TagbarToggle<CR>
 
-map <C-left> <ESC>:bp<CR>
-map <C-right> <ESC>:bn<CR>
+map <Leader>h :bp<CR>
+map <Leader>l :bn<CR>
 
-nnoremap <S-Left> :tabprevious<CR>                                                                            
-nnoremap <S-Right> :tabnext<CR>
+nnoremap <C-left> :tabprevious<CR>                                                                            
+nnoremap <C-right> :tabnext<CR>
 
 map <C-h> <C-w>h
 map <C-j> <C-w>j
@@ -134,4 +138,4 @@ let g:WebDevIconsNerdTreeBeforeGlyphPadding = ''
 let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
-
+let g:gitgutter_map_keys = 0
