@@ -1,3 +1,4 @@
+
 " Make the space as the leader key.
 let mapleader = " " 
 
@@ -58,6 +59,8 @@ map <C-n> <C-w><
 
 " Clear search highliting.
 nnoremap <Leader><space> :noh<cr>
+
+map <Leader>v :vsplit<CR>
 
 "
 " Airline
@@ -139,3 +142,4 @@ let g:WebDevIconsUnicodeDecorateFolderNodes = v:true
 let g:DevIconsEnableFoldersOpenClose = 1
 let g:WebDevIconsNerdTreeGitPluginForceVAlign = 1
 let g:gitgutter_map_keys = 0
+
