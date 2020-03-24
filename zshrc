@@ -1,13 +1,17 @@
 # If you come from bash you might have to change your $PATH.
  export TERM="xterm-256color"
  export PATH=$HOME/bin:/usr/local/bin:$PATH
+ export PATH=/opt/microchip/xc32/v2.15/bin:$PATH
+ export PATH=/opt/pinguino/p32/bin:$PATH
+ export PATH=$HOME/esp/crosstool-NG/builds/xtensa-esp32-elf/bin:$PATH
+ export IDF_PATH=$HOME/esp/esp-idf
  PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
 # Path to your oh-my-zsh installation.
-  export ZSH=$HOME"/.oh-my-zsh"
-
-# Tab completion for colorls
-  source $(dirname $(gem which colorls))/tab_complete.sh
+  export ZSH="/home/ouss4/.oh-my-zsh"
+  
+# Disable legacy flow control
+stty -ixon
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -17,6 +21,9 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 POWERLEVEL9K_MODE='awesome-fontconfig'
 
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(os_icon context dir vcs)
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=1
+POWERLEVEL9K_SHORTEN_DELIMITER=""
+POWERLEVEL9K_SHORTEN_STRATEGY="truncate_from_right"
 POWERLEVEL9K_OS_ICON_BACKGROUND='245'
 POWERLEVEL9K_OS_ICON_FOREGROUND='black'
 POWERLEVEL9K_CONTEXT_TEMPLATE='%n'
@@ -28,8 +35,8 @@ POWERLEVEL9K_CONTEXT_DEFAULT_BACKGROUND='235'
 POWERLEVEL9K_TIME_FOREGROUND='207'
 POWERLEVEL9K_COMMAND_EXECUTION_TIME_FOREGROUND='245'
 POWERLEVEL9K_STATUS_OK_FOREGROUND='green'
-POWERLEVEL9k_STATUS_ERROR_FOREGROUND='red'
-POWERLEVEL9k_STATUS_ERROR_FOREGROUND='red'
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND='red'
+POWERLEVEL9K_STATUS_ERROR_FOREGROUND='red'
 
 POWERLEVEL9K_VCS_CLEAN_BACKGROUND='047'
 POWERLEVEL9K_VCS_UNTRACKED_BACKGROUND='166'
@@ -114,11 +121,11 @@ source $ZSH/oh-my-zsh.sh
 # export LANG=en_US.UTF-8
 
 # Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
+if [[ -n $SSH_CONNECTION ]]; then
+  export EDITOR='vim'
+else
+  export EDITOR='vim'
+fi
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -138,4 +145,4 @@ neofetch
 
 bindkey -v
 export KEYTIMEOUT=1
-
+unsetopt share_history
