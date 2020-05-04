@@ -87,6 +87,8 @@ let g:airline#extensions#tabline#left_alt_sep = ''
 let g:airline#extensions#tabline#show_close_button = 0
 let g:airline#extensions#tabline#show_tabs = 0
 let g:airline#extensions#tabline#show_buffers = 0
+let g:airline#extensions#tabline#tabs_label = 't'
+let g:airline#extensions#tabline#buffers_label = 'b'
 
 " unicode symbols
 
