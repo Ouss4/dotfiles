@@ -4,6 +4,11 @@
 # Set mod key (Mod1=<Alt>, Mod4=<Super>)
 set $mod Mod4
 
+# Remap caps to escape
+#exec_always --no-startup-id setxkbmap -option caps:ctrl_modifier
+#exec_always --no-startup-id xcape -e 'Caps_Lock=Escape'
+exec_always --no-startup-id setxkbmap -option caps:escape
+
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
 
@@ -13,7 +18,6 @@ new_float normal
 
 # Hide borders
 hide_edge_borders none
-
 
 # change borders
 bindsym $mod+u border none
@@ -44,7 +48,7 @@ bindsym $mod+z exec --no-startup-id morc_menu
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ################################################################################################
 
-exec --no-startup-id volumeicon
+#exec --no-startup-id volumeicon
 bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 #exec --no-startup-id pulseaudio
 #exec --no-startup-id pa-applet
@@ -55,11 +59,13 @@ bindsym $mod+Ctrl+m exec terminal -e 'alsamixer'
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
+bindsym XF86AudioLowerVolume exec "amixer set Master 5%-"
+bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
 bindsym $mod+F2 exec firefox
-#bindsym $mod+F2 exec brave --enable-tab-audio-muting --disable-domain-reliability --disable-chrome-google-url-tracking-client --no-pings 
+bindsym $mod+Shift+F2 exec firefox -private-window
 
 bindsym $mod+F3 exec pcmanfm
 #bindsym $mod+F4 exec ranger
@@ -71,16 +77,16 @@ bindsym $mod+Shift+d --release exec "killall dunst; exec notify-send 'restart du
 bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
-bindsym $mod+Shift+h exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+bindsym $mod+p exec --no-startup-id steam move scratchpad
 
 # focus_follows_mouse no
 
 # change focus
-bindsym $mod+j focus left
-bindsym $mod+k focus down
-bindsym $mod+l focus up
-bindsym $mod+semicolon focus right
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -89,10 +95,10 @@ bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 
 # move focused window
-bindsym $mod+Shift+j move left
-bindsym $mod+Shift+k move down
-bindsym $mod+Shift+l move up
-bindsym $mod+Shift+semicolon move right
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Shift+Left move left
@@ -106,7 +112,7 @@ bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
 # split orientation
-bindsym $mod+h split h;exec notify-send 'tile horizontally'
+bindsym $mod+Shift+v split h;exec notify-send 'tile horizontally'
 bindsym $mod+v split v;exec notify-send 'tile vertically'
 bindsym $mod+q split toggle
 
@@ -131,11 +137,11 @@ bindsym $mod+Shift+s sticky toggle
 bindsym $mod+a focus parent
 
 # move the currently focused window to the scratchpad
-bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+Shift+twosuperior move scratchpad
 
 # Show the next scratchpad window or hide the focused scratchpad window.
 # If there are multiple scratchpad windows, this command cycles through them.
-bindsym $mod+minus scratchpad show
+bindsym $mod+twosuperior scratchpad show
 
 #navigate workspaces next / previous
 bindsym $mod+Ctrl+Right workspace next
@@ -165,14 +171,14 @@ bindsym $mod+7 workspace $ws7
 bindsym $mod+8 workspace $ws8
 
 # Alternativly, use keypad
-bindsym $mod+KP_1 workspace $ws1
-bindsym $mod+KP_2 workspace $ws2
-bindsym $mod+KP_3 workspace $ws3
-bindsym $mod+KP_4 workspace $ws4
-bindsym $mod+KP_5 workspace $ws5
-bindsym $mod+KP_6 workspace $ws6
-bindsym $mod+KP_7 workspace $ws7
-bindsym $mod+KP_8 workspace $ws8
+bindsym $mod+Mod2+KP_1 workspace $ws1
+bindsym $mod+Mod2+KP_2 workspace $ws2
+bindsym $mod+Mod2+KP_3 workspace $ws3
+bindsym $mod+Mod2+KP_4 workspace $ws4
+bindsym $mod+Mod2+KP_5 workspace $ws5
+bindsym $mod+Mod2+KP_6 workspace $ws6
+bindsym $mod+Mod2+KP_7 workspace $ws7
+bindsym $mod+Mod2+KP_8 workspace $ws8
 
 # Move focused container to workspace
 bindsym $mod+Ctrl+1 move container to workspace $ws1
@@ -199,6 +205,8 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Pale moon"] $ws2
 # assign [class="Pcmanfm"] $ws3
 # assign [class="Skype"] $ws5
+
+# Open specific applications in scratchpad
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
@@ -227,6 +235,7 @@ for_window [class="Skype"] floating enable border normal
 for_window [class="Timeset-gui"] floating enable border normal
 for_window [class="(?i)virtualbox"] floating enable border normal
 for_window [class="Xfburn"] floating enable
+for_window [title="Private Browsing"] floating enable
 
 # switch to workspace with urgent window automatically
 for_window [urgent=latest] focus
@@ -334,9 +343,13 @@ set_from_resource $term_color15    color15
 
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
-  font pango:Inconsolata for Powerline 12
+  font pango:DejaVu Sans Mono for Powerline 10
 	i3bar_command i3bar
-	status_command ~/bumblebee-status/bumblebee-status -m nic cpu memory battery date time pacman amixer -p root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y" -t iceberg-rainbow
+	status_command ~/bumblebee-status/bumblebee-status -m nic cpu memory battery date time pacman amixer\
+  -p nic.exclude="wlo1,enp4s0,lo" root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y"\
+     memory.format="{percent:05.02f}%"\
+     amixer.wheel-up="amixer set Master 5%+" amixer.wheel-down="amixer set Master 5%-"\
+  -t dracula-powerline
 	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
