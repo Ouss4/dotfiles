@@ -78,7 +78,7 @@ bindsym Print exec --no-startup-id i3-scrot
 bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
 bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-bindsym $mod+p exec --no-startup-id steam move scratchpad
+bindsym $mod+p exec --no-startup-id steam
 
 # focus_follows_mouse no
 
@@ -207,6 +207,7 @@ bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
 # assign [class="Skype"] $ws5
 
 # Open specific applications in scratchpad
+for_window [class="Steam"] move scratchpad
 
 # Open specific applications in floating mode
 for_window [title="alsamixer"] floating enable border pixel 1
