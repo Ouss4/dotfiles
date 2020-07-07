@@ -148,7 +148,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
-let NERDTreeIgnore=['\.o$', '\~$']
+let NERDTreeIgnore=['\.o$', '\~$', '(?<!init.d)\.d$']
 let NERDTreeDirArrowExpandable = "\u00a0"
 let NERDTreeDirArrowCollapsible = "\u00a0"
 let g:webdevicons_conceal_nerdtree_brackets = 1
