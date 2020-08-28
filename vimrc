@@ -69,6 +69,12 @@ map <Leader>f :Files<CR>
 
 map <Leader>g :Gvdiff<CR>
 
+" Folding
+nnoremap <Leader>a za
+
+setlocal foldmethod=syntax
+set foldlevelstart=20
+
 "
 " Airline
 "
@@ -148,7 +154,7 @@ let g:NERDTreeIndicatorMapCustom = {
     \ 'Ignored'   : '☒',
     \ "Unknown"   : "?"
     \ }
-let NERDTreeIgnore=['\.o$', '\~$', '(?<!init.d)\.d$']
+let NERDTreeIgnore=['\.o$', '\~$']
 let NERDTreeDirArrowExpandable = "\u00a0"
 let NERDTreeDirArrowCollapsible = "\u00a0"
 let g:webdevicons_conceal_nerdtree_brackets = 1
