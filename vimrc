@@ -1,3 +1,26 @@
+call plug#begin()
+
+Plug 'jiangmiao/auto-pairs'
+Plug 'haya14busa/incsearch.vim'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'majutsushi/tagbar'
+Plug 'mbbill/undotree'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-fugitive'
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-sensible'
+Plug 'yegappan/taglist'
+Plug 'rafi/awesome-vim-colorschemes'
+Plug 'google/vim-searchindex'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
+Plug 'junegunn/fzf.vim'
+Plug 'dracula/vim'
+
+call plug#end()
+
 " Make the space as the leader key.
 let mapleader = " " 
 
@@ -20,16 +43,13 @@ set showcmd
 set noswapfile
 set autoread
 
-execute pathogen#infect()
-
 set smartindent
 set autoindent
 set cindent
 filetype plugin indent on
 syntax on
 
-colorscheme desertEx
-"hi Search cterm=bold ctermfg=231 ctermbg=24
+colorscheme dracula
 
 " Make defs file have the same syntax as make (used in NuttX)
 autocmd BufNewFile,BufRead *.defs set syntax=make
@@ -66,6 +86,8 @@ nnoremap <Leader><space> :noh<cr>
 map <Leader>v :vsplit<CR>
 
 map <Leader>f :Files<CR>
+
+map <Leader>g :Gvdiff<CR>
 
 map <Leader>g :Gvdiff<CR>
 
@@ -142,7 +164,7 @@ call NERDTreeHighlightFile('sh', 'red', 'none', 'yellow', '#151515')
 
 " NerdTree git pluging indicators
 
-let g:NERDTreeIndicatorMapCustom = {
+let g:NERDTreeGitStatusIndicatorMapCustom = {
     \ "Modified"  : "✹",
     \ "Staged"    : "✚",
     \ "Untracked" : "✭",
@@ -171,3 +193,4 @@ if exists("g:ctrl_user_command")
 endif
 set wildignore+=*.o
 let $FZF_DEFAULT_COMMAND ='find * -type f ! -name "*.o"'
+
