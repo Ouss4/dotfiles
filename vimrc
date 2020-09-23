@@ -47,12 +47,20 @@ set smartindent
 set autoindent
 set cindent
 filetype plugin indent on
+
 syntax on
 
-colorscheme dracula
+colorscheme PaperColor
 
 " Make defs file have the same syntax as make (used in NuttX)
-autocmd BufNewFile,BufRead *.defs set syntax=make
+autocmd BufNewFile,BufRead *.defs setlocal syntax=make
+autocmd BufNewFile,BufRead *.defs setlocal noexpandtab
+autocmd BufNewFile,BufRead *.defs setlocal shiftwidth=4 tabstop=4
+autocmd FileType make setlocal shiftwidth=4 tabstop=4
+autocmd FileType make setlocal noexpandtab
+
+autocmd BufNewFile,BufRead Kconfig setlocal noexpandtab
+autocmd BufNewFile,BufRead Kconfig setlocal shiftwidth=4 tabstop=4
 
 "
 " Shortcuts mapping
@@ -94,8 +102,8 @@ map <Leader>g :Gvdiff<CR>
 " Folding
 nnoremap <Leader>a za
 
-setlocal foldmethod=syntax
 set foldlevelstart=20
+setlocal foldmethod=syntax
 
 "
 " Airline
@@ -193,4 +201,3 @@ if exists("g:ctrl_user_command")
 endif
 set wildignore+=*.o
 let $FZF_DEFAULT_COMMAND ='find * -type f ! -name "*.o"'
-
