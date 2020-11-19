@@ -17,6 +17,7 @@ Plug 'google/vim-searchindex'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 Plug 'dracula/vim'
+Plug 'tmux-plugins/vim-tmux-focus-events'
 
 call plug#end()
 
@@ -42,6 +43,10 @@ set showcmd
 set noswapfile
 set autoread
 
+au FocusGained,BufEnter * :silent! checktime
+autocmd FileChangedShellPost *
+  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+
 set smartindent
 set autoindent
 set cindent
@@ -50,6 +55,10 @@ filetype plugin indent on
 syntax on
 
 colorscheme PaperColor
+
+let termdebugger = "xtensa-esp32-elf-gdb"
+let g:termdebug_popup = 0
+let g:termdebug_wide = 163
 
 " Make defs file have the same syntax as make (used in NuttX)
 autocmd BufNewFile,BufRead *.defs setlocal syntax=make
