@@ -43,7 +43,7 @@ set showcmd
 set noswapfile
 set autoread
 
-au FocusGained,BufEnter * :silent! checktime
+" au FocusGained,BufEnter * :silent! checktime
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 
@@ -64,6 +64,13 @@ let g:termdebug_wide = 163
 autocmd BufNewFile,BufRead *.defs setlocal syntax=make
 autocmd BufNewFile,BufRead *.defs setlocal noexpandtab
 autocmd BufNewFile,BufRead *.defs setlocal shiftwidth=4 tabstop=4
+
+autocmd BufRead,BufNewFile *.md setlocal spell
+autocmd BufRead,BufNewFile *.rst setlocal spell
+autocmd BufRead,BufNewFile *.txt setlocal spell
+autocmd FileType gitcommit setlocal spell
+set complete+=kspell
+
 autocmd FileType make setlocal shiftwidth=4 tabstop=4
 autocmd FileType make setlocal noexpandtab
 
@@ -123,6 +130,7 @@ endif
 
 let g:airline_theme='kolor'
 let g:airline_powerline_fonts=1
+let g:airline#extensions#searchcount#enabled=0
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#branch#enabled=1
 let g:airline#extensions#tabline#fnamemod = ':t'
