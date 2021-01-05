@@ -11,6 +11,7 @@ cursor_blink = system
 cursor_shape = block
 dynamic_title = true
 filter_unmatched_urls = true
+#font = DejaVu Sans Mono for Powerline 12
 font = Fira Mono for Powerline 12
 geometry = 480x280
 icon_name = terminal
@@ -64,3 +65,4 @@ color14 = #9aedfe
 # white
 color7  = #bfbfbf
 color15 = #e6e6e6
+
