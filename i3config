@@ -64,8 +64,8 @@ bindsym XF86AudioRaiseVolume exec "amixer set Master 5%+"
 
 # Start Applications
 bindsym $mod+Ctrl+b exec terminal -e 'bmenu'
-bindsym $mod+F2 exec firefox
-bindsym $mod+Shift+F2 exec firefox -private-window
+bindsym $mod+F1 exec brave
+bindsym $mod+F2 exec brave --incognito
 
 bindsym $mod+F3 exec pcmanfm
 #bindsym $mod+F4 exec ranger
@@ -346,11 +346,10 @@ set_from_resource $term_color15    color15
 bar {
   font pango:DejaVu Sans Mono for Powerline 10
 	i3bar_command i3bar
-	status_command ~/bumblebee-status/bumblebee-status -m nic cpu memory battery date time pacman amixer\
+	status_command bumblebee-status -m nic cpu memory battery date time pacman amixer\
   -p nic.exclude="wlo1,enp4s0,lo" root.path=/ time.format="%H:%M CW %V" date.format="%a, %b %d %Y"\
      memory.format="{percent:05.02f}%"\
-     amixer.wheel-up="amixer set Master 5%+" amixer.wheel-down="amixer set Master 5%-"\
-  -t dracula-powerline
+     amixer.wheel-up="amixer set Master 5%+" amixer.wheel-down="amixer set Master 5%-" -t dracula-powerline
 	position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
