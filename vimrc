@@ -18,6 +18,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install()  }  }
 Plug 'junegunn/fzf.vim'
 Plug 'dracula/vim'
 Plug 'tmux-plugins/vim-tmux-focus-events'
+Plug 'mfukar/robotframework-vim'
 
 call plug#end()
 
@@ -64,6 +65,10 @@ let g:termdebug_wide = 163
 autocmd BufNewFile,BufRead *.defs setlocal syntax=make
 autocmd BufNewFile,BufRead *.defs setlocal noexpandtab
 autocmd BufNewFile,BufRead *.defs setlocal shiftwidth=4 tabstop=4
+
+" Use tabs for robot framework files.
+autocmd BufNewFile,BufRead *.robot setlocal shiftwidth=4 tabstop=4
+autocmd BufNewFile,BufRead *.robot setlocal noexpandtab
 
 autocmd BufRead,BufNewFile *.md setlocal spell
 autocmd BufRead,BufNewFile *.rst setlocal spell
