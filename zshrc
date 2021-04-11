@@ -4,6 +4,10 @@ export PATH=$HOME/bin:/usr/local/bin:$PATH
 export PATH=$HOME/microchip/xc32/v2.41/bin:$PATH
 export PATH=$HOME/pinguino/linux64/p32/bin:$PATH
 export PATH=$HOME/esp/crosstool-NG/builds/xtensa-esp32-elf/bin:$PATH
+export PATH=$HOME/esp/qemu/build:$PATH
+export PATH=$HOME/esp/riscv32-esp-elf/bin:$PATH
+export PATH=$HOME/riscv64/bin:$PATH
+export PATH=$HOME/gcc-arm-none-eabi-10-2020-q4-major/bin:$PATH
 export IDF_PATH=$HOME/esp/esp-idf
 PATH="$PATH:$(ruby -e 'puts Gem.user_dir')/bin"
 
