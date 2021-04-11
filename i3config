@@ -7,7 +7,10 @@ set $mod Mod4
 # Remap caps to escape
 #exec_always --no-startup-id setxkbmap -option caps:ctrl_modifier
 #exec_always --no-startup-id xcape -e 'Caps_Lock=Escape'
-exec_always --no-startup-id setxkbmap -option caps:escape
+#exec_always --no-startup-id setxkbmap -option caps:escape
+exec_always --no-startup-id xset b off
+exec_always --no-startup-id xmodmap -e 'clear Lock' -e 'keycode 0x42 = Escape'
+exec_always --no-startup-id xpad move scratchpad
 
 # set default desktop layout (default is tiling)
 # workspace_layout tabbed <stacking|tabbed>
